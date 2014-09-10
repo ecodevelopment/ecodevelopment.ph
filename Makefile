@@ -12,8 +12,5 @@ build:
 	nanoc
 
 publish: build
-	cd output
-	git add .
-	git commit -am $(commitmsg)
-	git push
+	cd output && git add . && git commit -am $(commitmsg) && git push
 #
