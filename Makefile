@@ -13,4 +13,10 @@ build:
 
 publish: build
 	cd output && git add . && git commit -am $(commitmsg) && git push
+
+first_time:
+	rm -rf output/
+	git checkout --orphan gh-pages
+	git clone . output
+	cd output && git checkout gh-pages && rm -rf * && git add . && git commit -am 'Nuked output dir' && git remote rm origin && git remote origin add git@github.com:ecodevelopment/ecodevelopment.ph.git
 #
